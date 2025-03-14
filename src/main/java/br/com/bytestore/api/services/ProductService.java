@@ -3,10 +3,12 @@ package br.com.bytestore.api.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.bytestore.api.entites.Product;
 import br.com.bytestore.api.repository.ProductRepository;
 
+@Service
 public class ProductService{
 	
 	@Autowired
@@ -19,6 +21,10 @@ public class ProductService{
 	public void store(Product product)
 	{
 		productRepository.save(product);
+	}
+	
+	public List<Product> getAll(){
+		return productRepository.findAll();
 	}
 
 }
