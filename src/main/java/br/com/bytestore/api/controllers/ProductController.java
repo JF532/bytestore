@@ -2,7 +2,6 @@ package br.com.bytestore.api.controllers;
 
 import java.util.List;
 
-import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.bytestore.api.dtos.ProductDTO;
 import br.com.bytestore.api.entites.Product;
 import br.com.bytestore.api.services.ProductService;
 
@@ -24,14 +24,14 @@ public class ProductController {
 	ProductService productService;
 	
 	@PostMapping
-	public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+	public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO productDTO) {
 
-		return new ResponseEntity<>(productService.store(product), HttpStatus.CREATED);
+		return new ResponseEntity<>(productService.store(productDTO), HttpStatus.CREATED);
 	}
 	
 	@GetMapping
-	public List<Product> listAll()
+	public List<ProductDTO> listAll()
 	{
 		return productService.getAll();
-		}
+	}
 }
