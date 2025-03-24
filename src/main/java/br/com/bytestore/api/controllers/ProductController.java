@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.bytestore.api.dtos.ProductDTO;
 import br.com.bytestore.api.entites.Product;
+import br.com.bytestore.api.mappers.ProductMapper;
 import br.com.bytestore.api.services.ProductService;
 
 @RestController
@@ -21,16 +22,16 @@ import br.com.bytestore.api.services.ProductService;
 public class ProductController {
 
 	@Autowired
-	ProductService productService;
+	private ProductService productService;
 	
 	@PostMapping
 	public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO productDTO) {
-
-		return new ResponseEntity<>(productService.store(productDTO), HttpStatus.CREATED);
+		ProductDTO productResponseDTO = ProductMapper.toDTO(productService.store(productDTO));
+		return new ResponseEntity<>(productResponseDTO, HttpStatus.CREATED);
 	}
 	
 	@GetMapping
-	public List<ProductDTO> listAll()
+	public List<Product> listAll()
 	{
 		return productService.getAll();
 	}

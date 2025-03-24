@@ -9,11 +9,12 @@ public class ProductMapper {
 		return new ProductDTO(product.getName(), product.getPrice(),product.getStock());
 	}
 	
-	public static Product toEntinty(ProductDTO productDTO) {
+	public static Product toEntity(ProductDTO productDTO) {
 		Product product = new Product();
 		product.setName(productDTO.name());
 		product.setPrice(productDTO.price());
 		product.setStock(productDTO.stock());
 		return product;
 	}
+	
 }

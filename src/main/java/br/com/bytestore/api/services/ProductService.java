@@ -22,7 +22,7 @@ public class ProductService{
 	 */
 	public Product store(ProductDTO productDTO)
 	{
-		Product product = ProductMapper.toEntinty(productDTO);
+		Product product = ProductMapper.toEntity(productDTO);
 		return productRepository.save(product);
 	}
 	
