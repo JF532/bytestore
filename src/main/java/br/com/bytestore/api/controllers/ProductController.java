@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.bytestore.api.dtos.ProductDTO;
+import br.com.bytestore.api.dtos.ProductCreateDTO;
 import br.com.bytestore.api.entites.Product;
 import br.com.bytestore.api.mappers.ProductMapper;
 import br.com.bytestore.api.services.ProductService;
@@ -25,8 +25,8 @@ public class ProductController {
 	private ProductService productService;
 	
 	@PostMapping
-	public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO productDTO) {
-		ProductDTO productResponseDTO = ProductMapper.toDTO(productService.store(productDTO));
+	public ResponseEntity<ProductCreateDTO> createProduct(@RequestBody ProductCreateDTO productDTO) {
+		ProductCreateDTO productResponseDTO = ProductMapper.toDTO(productService.store(productDTO));
 		return new ResponseEntity<>(productResponseDTO, HttpStatus.CREATED);
 	}
 	

@@ -1,0 +1,7 @@
+package br.com.bytestore.api.dtos;
+
+import br.com.bytestore.api.enuns.Role;
+
+public record UserUpdateDTO(Long id, String name, String email, String password, Role role) {
+
+}
