@@ -1,6 +1,10 @@
 package br.com.bytestore.api.entites;
 
-import java.sql.Date;
+
+import java.time.Instant;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,16 +30,22 @@ public class Product {
 	private String brand;
 	private String imageUrl;
 	private float rating;
-	private Date created_at;
-	private Date updated_at;
+	@CreatedDate
+	private Instant created_at;
+	
+	@LastModifiedBy
+	private Instant updated_at;
 	
 	//@OneToMany ATENÇÃOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 	//@JoinColumn(name="product_id")
 	//private Product product;
 
+	public Product() {
+		
+	}
 	
 	public Product(Long id, String name, String descripton, double price, String category, String brand,
-			String imageUrl, float rating, Date created_at, Date updated_at) {
+			String imageUrl, float rating, Instant created_at, Instant updated_at) {
 		this.id = id;
 		this.name = name;
 		this.descripton = descripton;
@@ -96,16 +106,16 @@ public class Product {
 	public void setRating(float rating) {
 		this.rating = rating;
 	}
-	public Date getCreated_at() {
+	public Instant getCreated_at() {
 		return created_at;
 	}
-	public void setCreated_at(Date created_at) {
+	public void setCreated_at(Instant created_at) {
 		this.created_at = created_at;
 	}
-	public Date getUpdated_at() {
+	public Instant getUpdated_at() {
 		return updated_at;
 	}
-	public void setUpdated_at(Date updated_at) {
+	public void setUpdated_at(Instant updated_at) {
 		this.updated_at = updated_at;
 	}
 

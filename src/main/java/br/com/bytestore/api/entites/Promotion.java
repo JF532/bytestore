@@ -1,6 +1,10 @@
 package br.com.bytestore.api.entites;
 
-import java.sql.Date;
+
+import java.time.Instant;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,22 +23,32 @@ public class Promotion {
 	private long id;
 	private String name;
 	private float discountPercentage;
-	private Date startDate;
-	private Date endDate;
-	private boolean isActive;
+	
+	@CreatedDate
+	private Instant startDate;
+	
+	@LastModifiedBy
+	private Instant endDate;
+	
+	private boolean active;
+
 	
 	//Só pegou o de variation
 	@ManyToOne
 	@JoinColumn(name="product_variation_id")
 	private ProductVariation productVariation;
 	
-	public Promotion(long id, String name, float discountPercentage, Date startDate, Date endDate, boolean isActive) {
+	public Promotion() {
+		
+	}
+	public Promotion(long id, String name, float discountPercentage, Instant startDate, Instant endDate, boolean active, ProductVariation productVariation) {
 		this.id = id;
 		this.name = name;
 		this.discountPercentage = discountPercentage;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.isActive = isActive;
+		this.active = active;
+		this.productVariation = productVariation;
 	}
 
 
@@ -68,33 +82,43 @@ public class Promotion {
 	}
 
 
-	public Date getStartDate() {
+	public Instant getStartDate() {
 		return startDate;
 	}
 
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(Instant startDate) {
 		this.startDate = startDate;
 	}
 
 
-	public Date getEndDate() {
+	public Instant getEndDate() {
 		return endDate;
 	}
 
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(Instant endDate) {
 		this.endDate = endDate;
 	}
 
 
 	public boolean isActive() {
-		return isActive;
+		return active;
 	}
 
 
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+
+	public ProductVariation getProductVariation() {
+		return productVariation;
+	}
+
+
+	public void setProductVariation(ProductVariation productVariation) {
+		this.productVariation = productVariation;
 	}
 	
 	

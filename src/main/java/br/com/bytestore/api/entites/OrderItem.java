@@ -25,6 +25,10 @@ public class OrderItem {
 	@JoinColumn(name="product_variation_id")
 	private ProductVariation productVariation;
 
+	public OrderItem() {
+		
+	}
+	
 	public OrderItem(long id, int quantity, float subtotal, Order order, ProductVariation productVariation) {
 		this.id = id;
 		this.quantity = quantity;

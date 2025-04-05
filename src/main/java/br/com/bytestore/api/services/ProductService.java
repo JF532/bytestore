@@ -13,21 +13,6 @@ import br.com.bytestore.api.repository.ProductRepository;
 @Service
 public class ProductService{
 	
-	@Autowired
-	private ProductRepository productRepository;
-	
-	/**
-	 * Save new product
-	 * @param product
-	 */
-	public Product store(ProductCreateDTO productDTO)
-	{
-		Product product = ProductMapper.toEntity(productDTO);
-		return productRepository.save(product);
-	}
-	
-	public List<Product> getAll(){
-		return productRepository.findAll();
-	}
+
 
 }

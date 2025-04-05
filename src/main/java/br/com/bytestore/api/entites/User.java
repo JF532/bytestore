@@ -1,6 +1,10 @@
 package br.com.bytestore.api.entites;
 
-import java.sql.Date;
+
+import java.time.Instant;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
 
 import br.com.bytestore.api.enuns.Role;
 import jakarta.persistence.Entity;
@@ -22,13 +26,17 @@ public class User {
 	private String password;
 	@Enumerated(EnumType.STRING)
 	private Role role;
-	private Date created_at;
-	private Date updated_at;
+	
+	@CreatedDate
+	private Instant created_at;
+	
+	@LastModifiedBy
+	private Instant updated_at;
 	
 	public User() {
 	}
 
-	public User(Long id, String name, String email, String password, Role role, Date created_at, Date updated_at) {
+	public User(Long id, String name, String email, String password, Role role, Instant created_at, Instant updated_at) {
 	    this.id = id;
 	    this.name = name;
 	    this.email = email;
@@ -71,19 +79,19 @@ public class User {
 		this.role = role;
 	}
 
-	public Date getCreated_at() {
+	public Instant getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(Date created_at) {
+	public void setCreated_at(Instant created_at) {
 		this.created_at = created_at;
 	}
 	
-	public Date getUpdated_at() {
+	public Instant getUpdated_at() {
 		return updated_at;
 	}
 	
-	public void setUpdated_at(Date updated_at) {
+	public void setUpdated_at(Instant updated_at) {
 		this.updated_at= updated_at;
 	}
 }

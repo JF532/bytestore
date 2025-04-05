@@ -1,5 +1,8 @@
 package br.com.bytestore.api.dtos;
 
-public record PromotionCreateDTO() {
+
+import br.com.bytestore.api.entites.ProductVariation;
+
+public record PromotionCreateDTO(String name, float discountPercentage, boolean isActive, ProductVariation productVariation) {
 
 }

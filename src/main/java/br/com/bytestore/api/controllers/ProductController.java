@@ -21,18 +21,5 @@ import br.com.bytestore.api.services.ProductService;
 
 public class ProductController {
 
-	@Autowired
-	private ProductService productService;
-	
-	@PostMapping
-	public ResponseEntity<ProductCreateDTO> createProduct(@RequestBody ProductCreateDTO productDTO) {
-		ProductCreateDTO productResponseDTO = ProductMapper.toDTO(productService.store(productDTO));
-		return new ResponseEntity<>(productResponseDTO, HttpStatus.CREATED);
-	}
-	
-	@GetMapping
-	public List<Product> listAll()
-	{
-		return productService.getAll();
-	}
+
 }

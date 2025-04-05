@@ -13,8 +13,6 @@ public class OrderMapper {
 		Order order = new Order();
 		order.setUser(orderCreateDTO.user());
 		order.setTotalPrice(orderCreateDTO.totalPrice());
-		order.setPaymentMethod(orderCreateDTO.paymentMethod());
-		order.setStatus(orderCreateDTO.status());
 
 		return order;
 	}

@@ -26,7 +26,9 @@ public class CartItem {
 	private ProductVariation productVariation;
 
 	
-	
+	public CartItem() {
+		
+	}
 	public CartItem(long id, int quantity, float subtotal, Cart cart, ProductVariation productVariation) {
 		this.id = id;
 		this.quantity = quantity;

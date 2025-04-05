@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import br.com.bytestore.api.dtos.UserCreateDTO;
 import br.com.bytestore.api.dtos.UserResponseDTO;
 import br.com.bytestore.api.dtos.UserUpdateDTO;
+import br.com.bytestore.api.entites.Adress;
 import br.com.bytestore.api.entites.User;
 import br.com.bytestore.api.mappers.UserMapper;
+import br.com.bytestore.api.repository.AdressRepository;
 import br.com.bytestore.api.repository.UserRepository;
 
 @Service
@@ -17,13 +19,18 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private AdressRepository adressRepository;
+	
 	public UserResponseDTO store(UserCreateDTO userCreateDTO) {
 		User user = UserMapper.toEntity(userCreateDTO);
+		User userResponse = userRepository.save(user);
 		
+		Adress adress = new Adress();
+		adress.setUser(userResponse);
+		adressRepository.save(adress);
 		
-		UserResponseDTO userResponse = UserMapper.toDTO(userRepository.save(user));
-		
-		return userResponse;
+		return UserMapper.toDTO(userResponse);
 		}
 	
 	public List<UserResponseDTO> list(){

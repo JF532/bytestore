@@ -38,17 +38,14 @@ public class CartService {
 		return CartMapper.toDTO(cart);
 	}
 	
-	public CartResponseDTO update(CartUpdateDTO cartUpdateDTO) { //N sei
+	public CartResponseDTO update(CartUpdateDTO cartUpdateDTO) { 
 		
 		Cart cart = cartRepository.findById(cartUpdateDTO.id()).orElseThrow(
 				() -> new RuntimeException("Cart não encontrado."));
 		
-		//cart.setName(userUpdateDTO.name());
-		//user.setEmail(userUpdateDTO.email());
-		//user.setRole(userUpdateDTO.role());
-		//user.setPassword(userUpdateDTO.password());
-		
-		return null;
+		cart.setUser(cartUpdateDTO.user());
+		cartRepository.save(cart);
+		return CartMapper.toDTO(cart);
 	}
 	
 	

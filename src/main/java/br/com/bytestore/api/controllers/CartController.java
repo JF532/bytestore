@@ -43,7 +43,7 @@ public class CartController {
 	@GetMapping("/{id_cart}")
 	public ResponseEntity<CartResponseDTO> show(@PathVariable long id_cart){
 		try {
-			return new ResponseEntity(cartService.show(id_cart),HttpStatus.OK);
+			return new ResponseEntity<>(cartService.show(id_cart),HttpStatus.OK);
 		}catch (Exception e) {
 			return new ResponseEntity(e.getMessage(),HttpStatus.NOT_FOUND);
 		}
@@ -53,19 +53,19 @@ public class CartController {
 	@PatchMapping
 	public ResponseEntity<CartResponseDTO> update(@RequestBody CartUpdateDTO cartUpdateDTO) {
 		try {
-			return new ResponseEntity(cartService.update(cartUpdateDTO), HttpStatus.OK);
+			return new ResponseEntity<>(cartService.update(cartUpdateDTO), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
 	
 	@DeleteMapping("/{id_cart}")
-	public ResponseEntity<CartResponseDTO> destroy(@PathVariable long id_cart){
+	public ResponseEntity<String> destroy(@PathVariable long id_cart){
 		try {
 			cartService.destroy(id_cart);
-			return new ResponseEntity("Cart deletado com sucesso",HttpStatus.OK);
+			return new ResponseEntity<>("Cart deletado com sucesso",HttpStatus.OK);
 		}catch (Exception e) {
-			return new ResponseEntity(e.getMessage(),HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
 		}
 	}
 

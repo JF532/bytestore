@@ -1,6 +1,10 @@
 package br.com.bytestore.api.entites;
 
-import java.sql.Date;
+
+import java.time.Instant;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
 
 import br.com.bytestore.api.enuns.OrderStatus;
 import br.com.bytestore.api.enuns.PaymentMethod;
@@ -31,8 +35,11 @@ public class Order {
 	@Enumerated(EnumType.STRING)
 	private PaymentMethod paymentMethod;
 	private String trackingCode;
-	private Date created_at;
-	private Date updated_at;
+	@CreatedDate
+	private Instant created_at;
+	
+	@LastModifiedBy
+	private Instant updated_at;
 	
 	public Order() {
 		
@@ -41,8 +48,8 @@ public class Order {
 
 	
 	
-	public Order(long id, User user, float totalPrice, OrderStatus status, String trackingCode, Date created_at,
-			Date updated_at, PaymentMethod paymentMethod) {
+	public Order(long id, User user, float totalPrice, OrderStatus status, String trackingCode, Instant created_at,
+			Instant updated_at, PaymentMethod paymentMethod) {
 		this.id = id;
 		this.user = user;
 		this.totalPrice = totalPrice;
@@ -84,16 +91,16 @@ public class Order {
 	public void setTrackingCode(String trackingCode) {
 		this.trackingCode = trackingCode;
 	}
-	public Date getCreated_at() {
+	public Instant getCreated_at() {
 		return created_at;
 	}
-	public void setCreated_at(Date created_at) {
+	public void setCreated_at(Instant created_at) {
 		this.created_at = created_at;
 	}
-	public Date getUpdated_at() {
+	public Instant getUpdated_at() {
 		return updated_at;
 	}
-	public void setUpdated_at(Date updated_at) {
+	public void setUpdated_at(Instant updated_at) {
 		this.updated_at = updated_at;
 	}
 

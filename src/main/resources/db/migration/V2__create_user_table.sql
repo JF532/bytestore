@@ -3,5 +3,7 @@ CREATE TABLE users (
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    admin BOOLEAN,
+   	role VARCHAR(6) CHEK('SELLER','BUYER'),
+   	created_at TIMESTAMP,
+   	updated_at TIMESTAMP
 );
