@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import br.com.bytestore.api.dtos.UserCreateDTO;
 import br.com.bytestore.api.dtos.UserResponseDTO;
 import br.com.bytestore.api.dtos.UserUpdateDTO;
-import br.com.bytestore.api.entites.Adress;
+import br.com.bytestore.api.entites.Address;
 import br.com.bytestore.api.entites.User;
 import br.com.bytestore.api.mappers.UserMapper;
-import br.com.bytestore.api.repository.AdressRepository;
+import br.com.bytestore.api.repository.AddressRepository;
 import br.com.bytestore.api.repository.UserRepository;
 
 @Service
@@ -20,13 +20,13 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	@Autowired
-	private AdressRepository adressRepository;
+	private AddressRepository adressRepository;
 	
 	public UserResponseDTO store(UserCreateDTO userCreateDTO) {
 		User user = UserMapper.toEntity(userCreateDTO);
 		User userResponse = userRepository.save(user);
 		
-		Adress adress = new Adress();
+		Address adress = new Address();
 		adress.setUser(userResponse);
 		adressRepository.save(adress);
 		
@@ -60,7 +60,7 @@ public class UserService {
 	
 	public void destroy(long id) {
 		User user = userRepository.findById(id).orElseThrow(
-				() -> new RuntimeException("Usuário com o id " + id + " deletado."));
+				() -> new RuntimeException("Usuário com o id " + id + "  não encontrado."));
 		
 		userRepository.delete(user);
 	}

@@ -8,7 +8,7 @@ import br.com.bytestore.api.entites.Payment;
 public class PaymentMapper {
 	
 	public static PaymentResponseDTO toDTO(Payment payment) {
-		PaymentResponseDTO paymentResponse = new PaymentResponseDTO(payment.getId(),payment.getOrder(),payment.getPaymentMethod(),payment.getPaymentStatus(),payment.getCreated_at(),payment.getUpdated_at());
+		PaymentResponseDTO paymentResponse = new PaymentResponseDTO(payment.getId(),payment.getOrder(),payment.getPaymentMethod(), payment.getPaymentStatus(),payment.getCreated_at(),payment.getAmount(),payment.getUpdated_at());
 		return paymentResponse;
 	}
 	
@@ -17,6 +17,7 @@ public class PaymentMapper {
 		payment.setOrder(paymentCreateDTO.order());
 		payment.setPaymentMethod(paymentCreateDTO.paymentMethod());
 		payment.setPaymentStatus(paymentCreateDTO.paymentStatus());
+		payment.setAmount(paymentCreateDTO.amount());
 
 		return payment;
 	}

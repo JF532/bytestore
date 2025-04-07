@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "addresses")
-public class Adress {
+public class Address {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,29 +20,30 @@ public class Adress {
 	private String neighbothood;
 	private String city;
 	private String state;
-	private String complement;
+	private String compliment;
 	private long zipcode;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	public Adress() {
+	public Address() {
 		
 	}
 	
-	public Adress(long id, String street, String number, String neighbothood, String city, String state,
-			String complement, long zipcode, User user) {
+	public Address(long id, String street, String number, String neighbothood, String city, String state,
+			String compliment, long zipcode, User user) {
 		this.id = id;
 		this.street = street;
 		this.number = number;
 		this.neighbothood = neighbothood;
 		this.city = city;
 		this.state = state;
-		this.complement = complement;
+		this.compliment = compliment;
 		this.zipcode = zipcode;
 		this.user = user;
 	}
+	
 	public long getId() {
 		return id;
 	}
@@ -79,11 +80,11 @@ public class Adress {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public String getComplement() {
-		return complement;
+	public String getCompliment() {
+		return compliment;
 	}
-	public void setComplement(String complement) {
-		this.complement = complement;
+	public void setCompliment(String compliment) {
+		this.compliment = compliment;
 	}
 	public long getZipcode() {
 		return zipcode;
