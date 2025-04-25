@@ -1,10 +1,16 @@
-package br.com.bytestore.api.entites;
+package br.com.bytestore.api.entities;
 
 
 import java.time.Instant;
+import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+
 
 import br.com.bytestore.api.enuns.Role;
 import jakarta.persistence.Entity;
@@ -17,7 +23,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="users")
-public class User {
+public class User implements UserDetails{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -94,4 +100,16 @@ public class User {
 	public void setUpdated_at(Instant updated_at) {
 		this.updated_at= updated_at;
 	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return List.of();
+	}
+
+	@Override
+	public String getUsername() {
+		return this.email;
+	}
+	
 }

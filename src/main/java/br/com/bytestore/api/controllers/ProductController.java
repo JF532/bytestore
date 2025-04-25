@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.bytestore.api.dtos.ProductCreateDTO;
 import br.com.bytestore.api.dtos.ProductResponseDTO;
 import br.com.bytestore.api.dtos.ProductUpdateDTO;
-import br.com.bytestore.api.entites.Product;
+import br.com.bytestore.api.entities.Product;
 import br.com.bytestore.api.mappers.ProductMapper;
 import br.com.bytestore.api.services.ProductService;
 

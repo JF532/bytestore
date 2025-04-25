@@ -1,4 +1,4 @@
-package br.com.bytestore.api.entites;
+package br.com.bytestore.api.entities;
 
 
 import java.time.Instant;

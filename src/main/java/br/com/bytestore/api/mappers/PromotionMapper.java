@@ -3,7 +3,7 @@ package br.com.bytestore.api.mappers;
 
 import br.com.bytestore.api.dtos.PromotionCreateDTO;
 import br.com.bytestore.api.dtos.PromotionResponseDTO;
-import br.com.bytestore.api.entites.Promotion;
+import br.com.bytestore.api.entities.Promotion;
 
 public class PromotionMapper {
 	public static PromotionResponseDTO toDTO(Promotion promotion) {

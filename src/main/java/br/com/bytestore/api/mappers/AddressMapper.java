@@ -4,7 +4,7 @@ package br.com.bytestore.api.mappers;
 
 import br.com.bytestore.api.dtos.AddressCreateDTO;
 import br.com.bytestore.api.dtos.AddressResponseDTO;
-import br.com.bytestore.api.entites.Address;
+import br.com.bytestore.api.entities.Address;
 
 public class AddressMapper {
 	

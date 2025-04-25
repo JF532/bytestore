@@ -7,9 +7,8 @@ import org.springframework.data.jpa.repository.NativeQuery;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-
-import br.com.bytestore.api.entites.Cart;
-import br.com.bytestore.api.entites.CartItem;
+import br.com.bytestore.api.entities.Cart;
+import br.com.bytestore.api.entities.CartItem;
 
 @Repository
 public interface CartRepository extends JpaRepository<Cart, Long>{

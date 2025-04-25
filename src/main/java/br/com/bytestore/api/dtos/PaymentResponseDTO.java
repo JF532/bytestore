@@ -3,7 +3,7 @@ package br.com.bytestore.api.dtos;
 
 import java.time.Instant;
 
-import br.com.bytestore.api.entites.Order;
+import br.com.bytestore.api.entities.Order;
 import br.com.bytestore.api.enuns.PaymentMethod;
 import br.com.bytestore.api.enuns.PaymentStatus;
 

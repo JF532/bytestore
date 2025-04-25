@@ -2,7 +2,7 @@ package br.com.bytestore.api.mappers;
 
 import br.com.bytestore.api.dtos.CartItemCreateDTO;
 import br.com.bytestore.api.dtos.CartItemResponseDTO;
-import br.com.bytestore.api.entites.CartItem;
+import br.com.bytestore.api.entities.CartItem;
 
 public class CartItemMapper {
 	public static CartItemResponseDTO toDTO(CartItem cartItem) {

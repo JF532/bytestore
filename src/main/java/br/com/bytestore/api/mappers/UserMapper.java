@@ -3,7 +3,7 @@ package br.com.bytestore.api.mappers;
 
 import br.com.bytestore.api.dtos.UserCreateDTO;
 import br.com.bytestore.api.dtos.UserResponseDTO;
-import br.com.bytestore.api.entites.User;
+import br.com.bytestore.api.entities.User;
 
 public class UserMapper {
 	

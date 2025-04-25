@@ -3,7 +3,7 @@ package br.com.bytestore.api.mappers;
 
 import br.com.bytestore.api.dtos.ReviewCreateDTO;
 import br.com.bytestore.api.dtos.ReviewResponseDTO;
-import br.com.bytestore.api.entites.Review;
+import br.com.bytestore.api.entities.Review;
 
 public class ReviewMapper {
 	public static ReviewResponseDTO toDTO(Review review) {

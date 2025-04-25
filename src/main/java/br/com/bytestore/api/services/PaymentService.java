@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.bytestore.api.dtos.PaymentCreateDTO;
 import br.com.bytestore.api.dtos.PaymentResponseDTO;
 import br.com.bytestore.api.dtos.PaymentUpdateDTO;
-import br.com.bytestore.api.entites.Payment;
+import br.com.bytestore.api.entities.Payment;
 import br.com.bytestore.api.mappers.PaymentMapper;
 import br.com.bytestore.api.repository.PaymentRepository;
 

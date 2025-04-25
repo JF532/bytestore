@@ -2,7 +2,7 @@ package br.com.bytestore.api.mappers;
 
 import br.com.bytestore.api.dtos.OrderCreateDTO;
 import br.com.bytestore.api.dtos.OrderResponseDTO;
-import br.com.bytestore.api.entites.Order;
+import br.com.bytestore.api.entities.Order;
 
 public class OrderMapper {
 	public static OrderResponseDTO toDTO(Order order) {

@@ -4,7 +4,7 @@ package br.com.bytestore.api.mappers;
 
 import br.com.bytestore.api.dtos.OrderItemCreateDTO;
 import br.com.bytestore.api.dtos.OrderItemResponseDTO;
-import br.com.bytestore.api.entites.OrderItem;
+import br.com.bytestore.api.entities.OrderItem;
 
 public class OrderItemMapper {
 	

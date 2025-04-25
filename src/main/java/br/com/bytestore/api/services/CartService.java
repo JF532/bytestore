@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.bytestore.api.dtos.CartCreateDTO;
 import br.com.bytestore.api.dtos.CartResponseDTO;
 import br.com.bytestore.api.dtos.CartUpdateDTO;
-import br.com.bytestore.api.entites.Cart;
+import br.com.bytestore.api.entities.Cart;
 import br.com.bytestore.api.mappers.CartMapper;
 import br.com.bytestore.api.repository.CartRepository;
 

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.bytestore.api.dtos.AddressCreateDTO;
 import br.com.bytestore.api.dtos.AddressResponseDTO;
 import br.com.bytestore.api.dtos.AddressUpdateDTO;
-import br.com.bytestore.api.entites.Address;
+import br.com.bytestore.api.entities.Address;
 import br.com.bytestore.api.mappers.AddressMapper;
 import br.com.bytestore.api.repository.AddressRepository;
 

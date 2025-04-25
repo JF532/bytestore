@@ -3,7 +3,7 @@ package br.com.bytestore.api.mappers;
 
 import br.com.bytestore.api.dtos.ProductVariationCreateDTO;
 import br.com.bytestore.api.dtos.ProductVariationResponseDTO;
-import br.com.bytestore.api.entites.ProductVariation;
+import br.com.bytestore.api.entities.ProductVariation;
 
 public class ProductVariationMapper {
 	public static ProductVariationResponseDTO toDTO(ProductVariation productVariation) {
