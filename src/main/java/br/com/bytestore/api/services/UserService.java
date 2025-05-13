@@ -3,6 +3,7 @@ package br.com.bytestore.api.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.bytestore.api.dtos.UserCreateDTO;
@@ -24,6 +25,7 @@ public class UserService {
 	
 	public UserResponseDTO store(UserCreateDTO userCreateDTO) {
 		User user = UserMapper.toEntity(userCreateDTO);
+		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 		User userResponse = userRepository.save(user);
 		
 		Address adress = new Address();
